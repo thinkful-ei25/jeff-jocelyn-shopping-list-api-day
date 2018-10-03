@@ -1,4 +1,5 @@
-/* global shoppingList, store */
+/* global shoppingList, store, api, $*/
+'use strict';
 
 $(document).ready(function() {
   shoppingList.bindEventListeners();
@@ -12,3 +13,9 @@ api.getItems(function(data) {
 });
 
 console.log(api.BASE_URL);
+
+api.createItem('pears', (newItem) => {
+  api.getItems((items) => {
+    console.log(items);
+  });
+});
