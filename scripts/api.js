@@ -18,7 +18,8 @@ const api = (function () {
 
   }
   function getItems(callback) {
-    //$.getJSON(BASE_URL+'/items', callback);
+    $.getJSON(BASE_URL+'/items', callback);
+
   }
 
   return {
