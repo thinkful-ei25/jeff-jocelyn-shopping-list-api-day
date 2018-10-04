@@ -21,7 +21,6 @@ const store = (function(){
   };
 
   function findAndUpdate(id, newData) {
-    const newItem = this.items["id"];
     const newestItem = this.items.find(function(item){
       if(item.id === id){
         return item;

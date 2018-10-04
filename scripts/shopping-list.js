@@ -83,7 +83,8 @@ const shoppingList = (function(){
   function handleItemCheckClicked() {
     $('.js-shopping-list').on('click', '.js-item-toggle', event => {
       const id = getItemIdFromElement(event.currentTarget);
-      store.findAndToggleChecked(id);
+      api.updateItem(id, {checked:!store.item.checked},store.findAndUpdate(id, {checked:!store.items.checked}));
+      //store.findAndToggleChecked(id);
       render();
     });
   }
@@ -94,7 +95,8 @@ const shoppingList = (function(){
       // get the index of the item in store.items
       const id = getItemIdFromElement(event.currentTarget);
       // delete the item
-      store.findAndDelete(id);
+      // store.findAndDelete(id);
+      api.deleteItem(id, store.findAndDelete(id));
       // render the updated shopping list
       render();
     });
@@ -146,7 +148,7 @@ const shoppingList = (function(){
 
   // This object contains the only exposed methods from this module:
   return {
-    render: render,
-    bindEventListeners: bindEventListeners,
+    render,
+    bindEventListeners,
   };
 }());

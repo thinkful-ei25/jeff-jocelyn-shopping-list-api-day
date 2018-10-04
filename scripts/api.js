@@ -32,10 +32,20 @@ const api = (function () {
     });
   }
 
+  function deleteItem(id, callback){
+    $.ajax({
+      url: BASE_URL+'/items/'+id,
+      method:'DELETE',
+      contentType: 'application/json',
+      success: callback,
+    });
+  }
+
   return {
     getItems,
     createItem,
     updateItem,
+    deleteItem,
   };
 
 }());
